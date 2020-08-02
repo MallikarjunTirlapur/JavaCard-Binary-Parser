@@ -4,7 +4,7 @@ The parser interprets the java card binaries with a fixed format according java 
 For more details please visit my <a href="https://mallikarjuntirlapur.github.io/JavaCardBinaryParser/">mallikarjuntirlapur.github.io/JavaCardBinaryParser</a> page.
 
 ### Requirements
-* min Python 2.7
+* Python 2.7 (min)
 
 #### Command line arguments:
 
