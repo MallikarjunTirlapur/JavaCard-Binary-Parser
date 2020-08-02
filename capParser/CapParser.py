@@ -9,8 +9,8 @@ import argparse
 
 def getTheArguments():
     ap = argparse.ArgumentParser()
-    ap.add_argument("-b", "--cap", help="set the path to cap file, e.g \path\javacard\test.cap")
-    ap.add_argument("-c", "--component", help="print component information, feed in the component names e.g 'header' to information of each component and 'all' for all")
+    ap.add_argument("-p", "--capPath", help="path to cap file, e.g \path\javacard\test.cap")
+    ap.add_argument("-c", "--component", help="to get each component information, pass component name as argument e.g 'header', or 'all' for all components")
     args = vars(ap.parse_args())
     return args
 
@@ -18,5 +18,5 @@ if __name__ == "__main__":
     #read the arguments from the command line
     args = getTheArguments()
     compProcess = ComponentProcessor()
-    dirctry = args['cap']
+    dirctry = args['capPath']
     compProcess.main(dirctry, args['component'])

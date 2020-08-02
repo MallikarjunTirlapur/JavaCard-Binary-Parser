@@ -91,6 +91,10 @@ class MethodComp:
     def processMethodInfo(self, offset, byteCodeCount, prnt):
         length = 0
         self.parseMethodInfo(((offset*2) + 6), length, byteCodeCount, prnt)
+        
+    def getByteFromMethodInfo(self, offset):
+        length = 2
+        return (int)(Util.convertDataToPrint(self.binData, ((offset*2) + 6), length), 16)
 
     def processMethodComp(self, cpCmp, prnt):
         start = 0

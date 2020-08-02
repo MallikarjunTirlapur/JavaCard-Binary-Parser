@@ -86,8 +86,9 @@ class ComponentProcessor:
         self.hashMap['StaticField'].processStaticFieldComp()
         
     def processRefLoc(self):
+        self.processMethod('false')
         print("\nRefLocation")
-        self.hashMap['RefLocation'].processReferenceLocationComp()
+        self.hashMap['RefLocation'].processReferenceLocationComp(self.hashMap['ConstantPool'], self.hashMap['Method'])
         
     def processExport(self):
         print("\nExport")
@@ -151,41 +152,57 @@ class ComponentProcessor:
         path = os.path.dirname(dirctry)
         zfile.extractall(path)
         self.readInComponentBinaries(zfile, path)
-        
+        validArgument = False
+		
         if ((cmpt == 'header') or (cmpt == 'all')):
             self.processHeader()
+            validArgument = True
 
         if((cmpt == "directory") or (cmpt == 'all')):
             self.processDirectory()
+            validArgument = True
                 
         if 'Applet' in self.hashMap:
             if((cmpt == "applet") or (cmpt == 'all')):
                 self.processApplet()
+                validArgument = True
                 
         if((cmpt == "import") or (cmpt == 'all')):
             self.processImport()
+            validArgument = True
                 
-        if((cmpt == "cp") or (cmpt == 'all')):
+        if((cmpt == "constantpool") or (cmpt == 'all')):
             self.processCP('printOnConsole')
+            validArgument = True
                 
         if((cmpt == "descriptor") or (cmpt == 'all')):
             self.processDescriptor('printOnConsole')
+            validArgument = True
                 
         if((cmpt == "class") or (cmpt == 'all')):
             self.processClass()
+            validArgument = True
                 
         if((cmpt == "method") or (cmpt == 'all')):
             self.processMethod('printOnConsole')
+            validArgument = True
                 
         if((cmpt == "staticfield") or (cmpt == 'all')):
             self.processStaticField()
+            validArgument = True
                 
         if((cmpt == "refloc") or (cmpt == 'all')):
             self.processRefLoc()
+            validArgument = True
                 
         if 'Export' in self.hashMap:
             if((cmpt == "export") or (cmpt == 'all')):
                 self.processExport()
+                validArgument = True
                 
         if((cmpt == "debug") or (cmpt == 'all')):
-            self.processDebug()         
+            self.processDebug()
+            validArgument = True	
+
+        if validArgument is False:
+            print('either argument ',cmpt ,' is invalid or component is absent')
