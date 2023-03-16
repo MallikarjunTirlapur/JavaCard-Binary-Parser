@@ -62,6 +62,7 @@ class ReferenceLocationComp:
             print ('    offset_to_byte2_indices, '+offsetToByte2Indices)
             offsetinMethodInfo += (int)(offsetToByte2Indices, 16)
             if(offsetinMethodInfo == 255):
+                index += 1
                 continue
             print ('    offset to index in method info, which points to an entry in the constant pool ', offsetinMethodInfo)
             cpIndex = mtComp.getByteFromMethodInfo(offsetinMethodInfo)

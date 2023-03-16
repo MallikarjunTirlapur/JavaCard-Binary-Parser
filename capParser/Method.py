@@ -84,7 +84,7 @@ class MethodComp:
         
         if(catchTypeIndex):
             Util.printOnConsole(('    class info of the exception class caught by the exception handler, '), prnt)
-            cpCmp.parseTheInfoForTheGivenIndex(catchTypeIndex)
+            cpCmp.parseTheInfoForTheGivenIndex(catchTypeIndex, prnt)
             
         return start, length
 
