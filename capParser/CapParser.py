@@ -10,7 +10,7 @@ import argparse
 def getTheArguments():
     ap = argparse.ArgumentParser()
     ap.add_argument("-p", "--capPath", help="path to cap file, e.g \path\javacard\test.cap")
-    ap.add_argument("-c", "--component", help="to get each component information, pass component name as argument e.g 'header', or 'all' for all components")
+    ap.add_argument("-c", "--component", help="to get each component information, pass component name as argument 'header', 'directory', 'applet', 'import', 'constantpool', 'descriptor', 'class', 'method', 'staticfield', 'refloc', 'export', 'debug' or 'all' for all components")
     args = vars(ap.parse_args())
     return args
 

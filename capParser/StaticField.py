@@ -93,7 +93,7 @@ class StaticFieldComp:
         print('    non_default_value_count, ',nonDefaultValueCount)
         
         index = 0
-        print('        non-default values of the array, ')
+        print('        non-default values , ')
         while index < nonDefaultValueCount:
             start += length 
             length = 2
