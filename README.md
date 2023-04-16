@@ -1,6 +1,7 @@
 # JavaCard-Binary-Parser
 
-The parser interprets the java card binaries with a fixed format according <a href="https://www.oracle.com/java/technologies/javacard-downloads.html">Java Card 3.0.5</a> spec, and converts the data into human readable data and prints on the console. 
+The parser extracts and reads binaries from a .cap file and prints in human readable format on the console. CAP files are generated using <a href="https://www.oracle.com/java/technologies/javacard-downloads.html">Java Card 3.0.5</a> tools. 
+The current version of the tool only understands JC3.0.5 spec format.
 For more details please visit my <a href="https://mallikarjuntirlapur.github.io/JavaCardBinaryParser/">mallikarjuntirlapur.github.io/JavaCardBinaryParser</a> page.
 
 ### Requirements

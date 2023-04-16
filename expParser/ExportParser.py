@@ -11,7 +11,7 @@ import argparse
 
 def getTheArguments():
     ap = argparse.ArgumentParser()
-    ap.add_argument("-b", "--exp", help="set the path to exp file, e.g \path\javacard\test.exp")
+    ap.add_argument("-p", "--exp", help="set the path to exp file, e.g \path\javacard\test.exp")
     args = vars(ap.parse_args())
     return args
 

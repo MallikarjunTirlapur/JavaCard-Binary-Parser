@@ -93,7 +93,7 @@ class ComponentProcessor:
     def processExport(self):
         print("\nExport")
         self.hashMap['Export'].processExportComp()
-        
+
     def processDebug(self):
         print("\nDebug")
         self.hashMap['Debug'].processDebugComp()

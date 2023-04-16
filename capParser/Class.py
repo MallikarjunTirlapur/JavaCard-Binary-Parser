@@ -73,21 +73,22 @@ class ClassComp:
         start += length 
         length = 2
         bitfield = int(Util.convertDataToPrint(self.binData, start, length), 16)
-        intrfceFlag = ((bitfield & 0x80) == 0x80)
-        shareableFlag = ((bitfield & 0x40) == 0x40)
-        remoteFlag = ((bitfield & 0x20) == 0x20)
-        if (intrfceFlag):
+        flag = (bitfield >> 0x4)
+        intrfceFlag = 0x08
+        shareableFlag = 0x04
+        remoteFlag = 0x02
+        if (intrfceFlag == flag):
             interfaceCount = (bitfield & 0x0F)
             print ('        The info is Interface Info ')
             print ('        Super Interfaces Count: ', interfaceCount)
             start, length = self.processInterfaceInfo(start, length, interfaceCount)
 
-        elif (shareableFlag):
+        elif (shareableFlag == flag):
             interfaceCount = (bitfield & 0x0F)
             print ('        The info is Shareable Interface Info ')
             print ('        Super Interfaces Count: ', interfaceCount)
           
-        elif (remoteFlag):
+        elif (remoteFlag == flag):
             interfaceCount = (bitfield & 0x0F)
             print ('        The info is Remote Interface Info ')
             print ('        Super Interfaces Count: ', interfaceCount)   
@@ -105,7 +106,7 @@ class ClassComp:
                 index += 1
             print('            Interface name '+ name)  
             
-        else:
+        elif (0 == flag):
             bitfield = int(Util.convertDataToPrint(self.binData, start, length), 16)
             
             #Number of interfaces implemented by this class
